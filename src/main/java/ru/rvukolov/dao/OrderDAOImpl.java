@@ -30,7 +30,8 @@ public class OrderDAOImpl implements OrderDAO {
         return jdbcTemplate.query(selectQuery,
                 (rs, oo) -> new Order(rs.getInt("order_id"),
                         rs.getDate("date").toString(),
-                        rs.getInt("customer_id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
                         rs.getString("product_name"),
                         rs.getLong("amount")), name);
     }
