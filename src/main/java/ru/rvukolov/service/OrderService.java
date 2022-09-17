@@ -15,7 +15,7 @@ public class OrderService {
         this.orderDAO = orderDAO;
     }
 
-    public List<Order> getOrder(List<String> name) {
+    public List<Order> getOrder(String name) {
         return orderDAO.read(name);
     }
 }

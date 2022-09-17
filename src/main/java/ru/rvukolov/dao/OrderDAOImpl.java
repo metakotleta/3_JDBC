@@ -26,9 +26,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
-    public List<Order> read(List<String> name) {
-        String tempParams;
-
+    public List<Order> read(String name) {
         return jdbcTemplate.query(selectQuery,
                 (rs, oo) -> new Order(rs.getInt("order_id"),
                         rs.getDate("date").toString(),

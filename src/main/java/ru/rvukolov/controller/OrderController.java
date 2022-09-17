@@ -17,7 +17,7 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    public List<Order> getOrder(@RequestParam List<String> name) {
+    public List<Order> getOrder(@RequestParam String name) {
         return orderService.getOrder(name);
     }
 }
