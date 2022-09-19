@@ -4,6 +4,6 @@ import ru.rvukolov.model.Order;
 
 import java.util.List;
 
-public interface OrderDAO {
-    List<Order> read(String name);
+public interface IOrderDAO {
+    List<Order> selectOrdersByCustomerId(int id);
 }

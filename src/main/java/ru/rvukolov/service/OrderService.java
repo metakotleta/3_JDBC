@@ -1,21 +1,25 @@
 package ru.rvukolov.service;
 
 import org.springframework.stereotype.Service;
-import ru.rvukolov.dao.OrderDAO;
 import ru.rvukolov.model.Order;
+import ru.rvukolov.repository.CustomerOrderRepository;
 
 import java.util.List;
 
 @Service
 public class OrderService {
 
-    private final OrderDAO orderDAO;
+    private CustomerOrderRepository customerOrderRepository;
 
-    public OrderService(OrderDAO orderDAO) {
-        this.orderDAO = orderDAO;
+    public OrderService(CustomerOrderRepository customerOrderRepository) {
+        this.customerOrderRepository = customerOrderRepository;
     }
 
     public List<Order> getOrder(String name) {
-        return orderDAO.read(name);
+        return customerOrderRepository.getOrderByCustomerName(name);
+    }
+
+    public List<Order> getOrder2(String name) {
+        return customerOrderRepository.getOrderByCustomerName2(name);
     }
 }
